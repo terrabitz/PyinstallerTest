@@ -1,0 +1,24 @@
+version: 0.0.{build}
+image:
+ - Ubuntu
+ - Visual Studio 2017
+
+build_script:
+  - ./build.ps1
+
+artifacts:
+  - path: /dist/main
+    name: PyinstallerTest
+
+deploy:
+  release: pyinstallertest-v$(appveyor_build_version)
+  description: 'This is just a test'
+  provider: GitHub
+  auth_token:
+    secure: TGBEeIpw9ZL8SLhN4rpx6fo9LVr1QZfzbxj/Zl8gKa32+MVyykoXM4gwUnuY1Zna # your encrypted token from GitHub
+  artifact: /dist/main
+  draft: false
+  prerelease: false
+  on:
+    branch: master                 # release from master branch only
+    APPVEYOR_REPO_TAG: true        # deploy on tag push only
