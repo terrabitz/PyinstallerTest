@@ -1,6 +1,7 @@
 version: 0.0.{build}
 image:
- - Linux
+ - Ubuntu
+ - Visual Studio 2017
 
 install:
   - pip install --user pyinstaller
