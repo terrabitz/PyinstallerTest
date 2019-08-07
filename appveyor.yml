@@ -3,12 +3,8 @@ image:
  - Ubuntu
  - Visual Studio 2017
 
-environment:
-  matrix:
-  - TOXENV: py37
-
 install:
-  - pip install pyinstaller
+  - pip install --user pyinstaller
 
 build_script:
   - ps: ./build.ps1
