@@ -3,14 +3,15 @@ $ErrorActionPreference = 'Stop'
 Write-Host "Starting Build"
 
 if ($IsWindows) {
-    $pythonLocation = "$env:PYTHON\python.exe"
-} elseif ($IsLinux) {
-    $pythonLocation = "/usr/bin/python$env:PYTHON_VERSION"
-    ls /usr/bin/python*
+    Set-Alias python3 "$env:PYTHON\python.exe"
+    Set-Alias pip3 "$env:PYTHON\Scripts\pip.exe"
+    $env:PATH += ";C:\Users\appveyor\AppData\Roaming\Python\Python$env:PYTHON_VERSION\Scripts"
 }
 
-Set-Alias python $pythonLocation
-
-python -m pip install --upgrade pip
-python -m pip install --user pyinstaller
+pip3 install --upgrade pip
+try {
+    pip3 install --user pyinstaller
+} catch {
+    # Do nothing
+}
 pyinstaller -F ./main.py
