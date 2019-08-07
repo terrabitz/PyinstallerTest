@@ -6,6 +6,7 @@ if ($IsWindows) {
     $pythonLocation = "$env:PYTHON\python.exe"
 } elseif ($IsLinux) {
     $pythonLocation = "/usr/bin/python$env:PYTHON_VERSION"
+    ls /usr/bin/python*
 }
 
 Set-Alias python $pythonLocation
