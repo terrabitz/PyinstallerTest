@@ -52,7 +52,6 @@ artifacts:
     name: PyinstallerTestExe
 
 deploy:
-  release: pyinstallertest-$(APPVEYOR_REPO_TAG_NAME)
   description: 'This is just a test'
   provider: GitHub
   auth_token:
@@ -61,5 +60,4 @@ deploy:
   draft: false
   prerelease: false
   on:
-    branch: master                 # release from master branch only
     APPVEYOR_REPO_TAG: true        # deploy on tag push only
