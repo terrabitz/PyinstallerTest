@@ -48,7 +48,7 @@ build_script:
   - ps: ./build.ps1
 
 artifacts:
-  - path: /dist/main
+  - path: /dist/
     name: PyinstallerTest
 
 deploy:
@@ -57,7 +57,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: TGBEeIpw9ZL8SLhN4rpx6fo9LVr1QZfzbxj/Zl8gKa32+MVyykoXM4gwUnuY1Zna # your encrypted token from GitHub
-  artifact: /dist/main
+  artifact: /dist/
   draft: false
   prerelease: false
   on:
