@@ -1,10 +1,9 @@
 Write-Host "Starting Build"
 
-pyinstaller -F ./main.py
-Write-Host $env:APPVEYOR_REPO_TAG.gettype().name
 if ($env:APPVEYOR_REPO_TAG -eq "true") {
-    $newName = "pyinstaller-${env:APPVEYOR_REPO_TAG_NAME}_win.exe"
+    $newName = "pyinstaller-${env:APPVEYOR_REPO_TAG_NAME}_win"
 } else {
-    $newName = "pyinstaller-build${env:APPVEYOR_BUILD_VERSION}_win.exe"
+    $newName = "pyinstaller-build${env:APPVEYOR_BUILD_VERSION}_win"
 }
-Move-Item ./dist/main.exe ./dist/$newName
+
+pyinstaller -F ./main.py -n $newName
