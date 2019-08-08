@@ -52,7 +52,7 @@ artifacts:
     name: PyinstallerTest
 
 deploy:
-  release: pyinstallertest-v$(appveyor_build_version)
+  release: pyinstallertest-$(APPVEYOR_REPO_TAG_NAME)
   description: 'This is just a test'
   provider: GitHub
   auth_token:
