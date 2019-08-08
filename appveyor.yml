@@ -49,7 +49,7 @@ build_script:
 
 artifacts:
   - path: /dist/*.exe
-    name: PyinstallerTest
+    name: PyinstallerTestExe
 
 deploy:
   release: pyinstallertest-$(APPVEYOR_REPO_TAG_NAME)
@@ -57,7 +57,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: TGBEeIpw9ZL8SLhN4rpx6fo9LVr1QZfzbxj/Zl8gKa32+MVyykoXM4gwUnuY1Zna # your encrypted token from GitHub
-  artifact: /dist\.*\.exe/
+  artifact: PyinstallerTestExe
   draft: false
   prerelease: false
   on:
