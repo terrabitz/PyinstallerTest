@@ -6,4 +6,4 @@ if ($env:APPVEYOR_REPO_TAG) {
 } else {
     $newName = "pyinstaller-build${env:APPVEYOR_BUILD_VERSION}.exe"
 }
-Move-Item ./dist/main.ext ./dist/$newName
+Move-Item ./dist/main.exe ./dist/$newName
