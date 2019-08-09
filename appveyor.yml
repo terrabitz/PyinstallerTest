@@ -57,7 +57,7 @@ deploy:
   auth_token:
     secure: TGBEeIpw9ZL8SLhN4rpx6fo9LVr1QZfzbxj/Zl8gKa32+MVyykoXM4gwUnuY1Zna # your encrypted token from GitHub
   artifact: PyinstallerTestExe
-  draft: false
+  draft: true
   prerelease: false
   on:
     APPVEYOR_REPO_TAG: true        # deploy on tag push only
