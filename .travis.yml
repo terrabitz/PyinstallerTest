@@ -13,6 +13,7 @@ addons:
   artifacts:
     paths:
       - $(ls ./dist/* | tr "\n" ":")
+    s3_region: "us-east-1"
 
 env:
  global:
