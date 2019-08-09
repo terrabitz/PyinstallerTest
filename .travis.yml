@@ -1,19 +1,18 @@
-os:
-  - linux
-  - osx
-
-language: python
-
-dist: bionic
-
-osx_image: xcode11
-
-python:
-  - "3.7"
+language: python            # this works for Linux but is an error on macOS or Windows
+matrix:
+  include:
+    - name: "Python 3.7.1 on Xenial Linux"
+      python: 3.7           # this works for Linux but is ignored on macOS or Windows
+      dist: xenial   
+    - name: "Python 3.7.2 on macOS"
+      os: osx
+      osx_image: xcode10.2  # Python 3.7.2 running on macOS 10.14.3
+      language: shell       # 'language: python' is an error on Travis CI macOS
 
 install:
-  - pip install -r dev-requirements.txt
-  - python --version
+  - pip3 install --upgrade pip
+  - pip3 install -r dev-requirements.txt
+  - python3 --version
 
 script:
   - if [ -z $TRAVIS_TAG ]; then export NEW_NAME="pyinstallertest-build${TRAVIS_BUILD_NUMBER}_${TRAVIS_OS_NAME}"; else export NEW_NAME="pyinstallertest-${TRAVIS_TAG}_${TRAVIS_OS_NAME}"; fi
