@@ -12,7 +12,7 @@ install:
   - python --version
 
 script:
-  - export NEW_NAME="pyinstallertest-${TRAVIS_TAG}_${TRAVIS_OS}"
+  - if [ -z $TRAVIS_TAG ]; then export NEW_NAME="pyinstallertest-build${TRAVIS_BUILD_NUMBER}_${TRAVIS_OS_NAME}"; else export NEW_NAME="pyinstallertest-${TRAVIS_TAG}_${TRAVIS_OS_NAME}"; fi
   - pyinstaller -F ./main.py -n "$NEW_NAME"
   
 before_deploy:
